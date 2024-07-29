@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Resident Data</title>
+    <style>
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Resident Data</h1>
+    <pre>
+        [
+            {% for resident in residents %}
+            {
+                "tenantid": "{{ resident.tenantid }}",
+                "resident_fname": "{{ resident.resident_fname }}",
+                "resident_lname": "{{ resident.resident_lname }}",
+                "resident_program": "{{ resident.resident_program }}",
+                "last_effective_action": {{ resident.last_effective_action }},
+                "last_effective_date": "{{ resident.last_effective_date }}",
+                "resident_phonenumber": "{{ resident.resident_phonenumber }}",
+                "resident_email": "{{ resident.resident_email }}",
+                "resident_address": "{{ resident.resident_address }}",
+                "resident_status": "{{ resident.resident_status }}",
+                "unitid": "{{ resident.unitid }}",
+                "resident_amp": {{ resident.resident_amp }}
+            }{% if not forloop.last %},{% endif %}
+            {% endfor %}
+        ]
+    </pre>
+</body>
+
+</html>

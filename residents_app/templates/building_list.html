@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Building Data</title>
+    <style>
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Building Data</h1>
+    <pre>
+        [
+            {% for building in buildings %}
+            {
+                "buildingid": {{ building.buildingid }},
+                "housingid": {{ building.housingid }},
+                "number_of_units": {{ building.number_of_units }},
+                "building_name": "{{ building.building_name }}",
+                "building_address": "{{ building.building_address }}",
+                "ampid": {{ building.ampid }}
+            }{% if not forloop.last %},{% endif %}
+            {% endfor %}
+        ]
+    </pre>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Contract Data</title>
+    <style>
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Contract Data</h1>
+    <pre>
+        [
+            {% for contract in contracts %}
+            {
+                "contractid": {{ contract.contractid }},
+                "contract_effectivedate": "{{ contract.contract_effectivedate }}",
+                "contract_type": "{{ contract.contract_type }}",
+                "contract_address": "{{ contract.contract_address }}",
+                "tenantid": "{{ contract.tenantid }}",
+                "contract_status": "{{ contract.contract_status }}",
+                "contract_phone_number": "{{ contract.contract_phone_number }}",
+                "contract_email": "{{ contract.contract_email }}",
+                "contract_amp": {{ contract.contract_amp }},
+                "contract_last_recert": "{{ contract.contract_last_recert }}",
+                "contract_packet_sent": "{{ contract.contract_packet_sent }}",
+                "contract_packet_received": "{{ contract.contract_packet_received }}",
+                "contract_rent_det_letter_sent": "{{ contract.contract_rent_det_letter_sent }}",
+                "contract_unit": {{ contract.contract_unit }},
+                "contract_building": {{ contract.contract_building }},
+                "contract_program": "{{ contract.contract_program }}",
+                "contract_rent": {{ contract.contract_rent }},
+                "contract_process_status": "{{ contract.contract_process_status }}"
+            }{% if not forloop.last %},{% endif %}
+            {% endfor %}
+        ]
+    </pre>
+</body>
+
+</html>
